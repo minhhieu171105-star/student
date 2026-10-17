@@ -219,23 +219,27 @@ main {
 
 /* ─── Tabs (Segmented Control style) ─────────────────── */
 .portal-tabs {
-  display: inline-flex;
-  gap: 6px;
-  padding: 0;
-  margin: 0 0 16px;
+  display: flex;
+  width: 100%;
+  gap: 4px;
+  padding: 4px;
+  margin: 0 0 20px;
+  background: var(--line-light);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
 }
 
 .portal-tab {
-  flex: 0 0 auto;
+  flex: 1;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 6px;
-  padding: 7px 10px;
+  padding: 8px 12px;
   border-radius: var(--r-sm);
   border: 0;
-  background: var(--canvas);
-  border: 1px solid var(--line);
+  background: transparent;
+  border: 0;
   color: var(--muted);
   font: inherit;
   font-size: 13px;
@@ -251,11 +255,10 @@ main {
 }
 
 .portal-tab.active {
-  background: var(--primary-soft);
-  border-color: var(--primary-muted);
-  color: var(--primary-dark);
+  background: var(--paper);
+  color: var(--ink-2);
   font-weight: 700;
-  box-shadow: none;
+  box-shadow: var(--shadow-sm);
 }
 
 .tab-count {
@@ -621,6 +624,18 @@ input:focus, select:focus, textarea:focus { border-color: var(--primary); box-sh
 .login-card > p { margin: 5px 0 20px; font-size: 14px; }
 .login-card button { width: 100%; margin-top: 12px; min-height: 46px; font-size: 15px; border-radius: var(--r-md); }
 .login-card form + form { margin-top: 10px; }
+.student-confirm {
+  margin: 0 0 16px;
+  padding: 14px 16px;
+  color: var(--primary-dark);
+  background: var(--primary-soft);
+  border: 1px solid var(--primary-muted);
+  border-radius: var(--r-md);
+  line-height: 1.55;
+}
+.student-confirm p { margin: 0; color: inherit; }
+.student-confirm p + p { margin-top: 3px; }
+.student-confirm strong { color: var(--ink); overflow-wrap: anywhere; }
 
 /* ─── Notices ────────────────────────────────────────── */
 .notice {
@@ -670,16 +685,14 @@ input:focus, select:focus, textarea:focus { border-color: var(--primary); box-sh
   .card { padding: 14px; }
   .exam-card-heading { flex-direction: column; gap: 6px; }
   .portal-tabs {
-    display: inline-flex;
-    width: auto;
-    max-width: 100%;
-    gap: 6px;
-    padding: 0;
+    display: flex;
+    width: 100%;
+    gap: 4px;
+    padding: 4px;
     margin-bottom: 16px;
   }
-  .portal-tab { min-width: max-content; flex: 0 0 auto; font-size: 12px; padding: 6px 8px; }
-  .portal-tab.active { background: var(--primary-soft); box-shadow: none; }
-  .tab-count { display: none; }
+  .portal-tab { min-width: 0; flex: 1; font-size: 12px; padding: 7px 6px; }
+  .tab-count { display: inline-flex; }
   .exam-actions, .question-nav { flex-direction: column; align-items: stretch; }
   .exam-actions .button, .exam-actions button, .question-nav .button, .question-nav button,
   .submit-exam-form button { width: 100%; }

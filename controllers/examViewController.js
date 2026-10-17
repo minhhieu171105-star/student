@@ -121,7 +121,7 @@ function renderPortal({ name, tests, grouped, section, selected, attemptNo }) {
 
 function loginHtml(error = '', confirmName = '') {
   const form = confirmName
-    ? `<div class="notice">Xin chào <strong>${esc(confirmName)}</strong>. Đây có phải tài khoản của bạn?</div><form method="post" action="/login"><button name="action" value="confirm">Xác nhận và vào hệ thống</button><button class="button-secondary" name="action" value="cancel">Không phải tôi</button></form>`
+    ? `<div class="student-confirm"><p>Xin chào <strong>${esc(confirmName)}</strong>.</p><p>Đây có phải tài khoản của bạn?</p></div><form method="post" action="/login"><button name="action" value="confirm">Xác nhận và vào hệ thống</button><button class="button-secondary" name="action" value="cancel">Không phải tôi</button></form>`
     : `<form method="post" action="/login"><input type="hidden" name="action" value="lookup"><label for="birth_date">Mật khẩu (ngày sinh)</label><input id="birth_date" name="birth_date" type="password" inputmode="numeric" pattern="[0-9]{8}" maxlength="8" placeholder="Ví dụ: 01012006" required autofocus><button>Kiểm tra tài khoản</button></form><p style="margin-top:12px;font-size:12px;color:var(--muted)">Nhập 8 chữ số theo thứ tự ngày, tháng, năm.</p>`;
   return fs.readFileSync(path.join(__dirname, '..', 'public', 'login.html'), 'utf8')
     .replace('{{ERROR}}', error ? `<div class="notice notice-error" role="alert">${esc(error)}</div>` : '').replace('{{FORM}}', form);
