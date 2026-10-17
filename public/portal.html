@@ -40,6 +40,9 @@
 
   <script>{{PAGE_SCRIPT}}</script>
   <script>
+    window.addEventListener('pageshow', function(event) {
+      if (event.persisted) window.location.reload();
+    });
     (function() {
       const el = document.getElementById('studentAvatar');
       if (!el) return;

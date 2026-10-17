@@ -34,6 +34,9 @@
   </main>
   {{SCRIPT}}
   <script>
+    window.addEventListener('pageshow', function(event) {
+      if (event.persisted) window.location.reload();
+    });
     (function() {
       const el = document.getElementById('examAvatar');
       if (!el) return;
