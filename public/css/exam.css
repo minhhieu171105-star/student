@@ -688,9 +688,12 @@ input:focus, select:focus, textarea:focus { border-color: var(--primary); box-sh
     display: flex;
     width: 100%;
     min-width: 0;
-    gap: 4px;
+    gap: 0;
     padding: 4px;
     margin-bottom: 16px;
+    background: var(--line-light);
+    border: 1px solid var(--line);
+    border-radius: var(--r-md);
     overflow-x: auto;
     overscroll-behavior-x: contain;
     -webkit-overflow-scrolling: touch;
@@ -705,6 +708,15 @@ input:focus, select:focus, textarea:focus { border-color: var(--primary); box-sh
     font-size: 12px;
     line-height: 1.3;
     text-align: center;
+    background: transparent !important;
+    border: 0 !important;
+    border-radius: calc(var(--r-md) - 4px);
+    box-shadow: none !important;
+  }
+  .portal-tab.active {
+    background: var(--paper) !important;
+    color: var(--ink-2);
+    box-shadow: var(--shadow-sm) !important;
   }
   .tab-count { display: inline-flex; }
   .exam-actions, .question-nav { flex-direction: column; align-items: stretch; }
