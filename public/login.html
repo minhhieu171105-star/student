@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Đăng nhập · Thi trực tuyến</title>
+  <link rel="stylesheet" href="/css/exam.css">
+  <style>
+    body {
+      background: linear-gradient(135deg, #f0fdfa 0%, #ecfdf5 50%, #f8fafc 100%);
+      min-height: 100vh;
+    }
+    .login-card {
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+    }
+  </style>
+</head>
+<body>
+  <main class="login-page">
+    <div class="login-brand">
+      <span class="login-brand-mark" aria-hidden="true">📚</span>
+      <h1>Thi trực tuyến</h1>
+      <p>Cổng làm bài dành cho học sinh</p>
+    </div>
+
+    <section class="card login-card">
+      <h2>Đăng nhập</h2>
+      <p>Nhập ngày sinh để xác nhận tài khoản của bạn.</p>
+      {{ERROR}}
+      {{FORM}}
+    </section>
+  </main>
+</body>
+</html>

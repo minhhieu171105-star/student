@@ -1,0 +1,7 @@
+/* portal.css overrides */
+.exam-nav { display: flex; justify-content: space-between; gap: 12px; margin: 14px 0; }
+.question-panel[hidden] { display: none !important; }
+.history a { display: inline-block; margin: 4px; }
+.start-form { display: inline; }
+header nav { display: flex; align-items: center; gap: 8px; }
+header form { display: inline; }

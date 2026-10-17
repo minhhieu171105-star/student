@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Thi trực tuyến</title>
+  <link rel="stylesheet" href="/css/exam.css">
+  <link rel="stylesheet" href="/css/portal.css">
+</head>
+<body>
+  <header class="app-header">
+    <div class="header-left">
+      <span class="brand-icon-wrap" aria-hidden="true">📖</span>
+      <div class="brand-info">
+        <span class="brand-name">Thi trực tuyến</span>
+        <span class="brand-subtitle">HỌC SINH</span>
+      </div>
+    </div>
+    <div class="header-right">
+      <div class="avatar-wrap">
+        <div class="user-avatar" id="studentAvatar" title="{{NAME}}">HS</div>
+        <span class="online-dot"></span>
+      </div>
+      <form method="post" action="/logout" style="margin:0;display:inline-flex;">
+        <button type="submit" class="logout-pill-btn" title="Đăng xuất">
+          <span class="logout-icon">⎋</span>
+          <span class="logout-text">Đăng xuất</span>
+        </button>
+      </form>
+    </div>
+  </header>
+
+  <main>
+    <div class="page-heading">
+      <h1>Xin chào, {{NAME}} 👋</h1>
+      <p class="page-subtitle">Các kỳ thi được giao cho bạn hôm nay. Chúc bạn làm bài tốt!</p>
+    </div>
+    {{MENU}}{{EMPTY}}{{CARDS}}
+  </main>
+
+  <script>{{PAGE_SCRIPT}}</script>
+  <script>
+    (function() {
+      const el = document.getElementById('studentAvatar');
+      if (!el) return;
+      const name = (el.getAttribute('title') || '').trim();
+      const parts = name.split(/\s+/).filter(Boolean);
+      el.textContent = parts.length >= 2
+        ? (parts[0][0] + parts[parts.length - 1][0]).toUpperCase()
+        : (name[0] || 'HS').toUpperCase();
+    })();
+  </script>
+</body>
+</html>
