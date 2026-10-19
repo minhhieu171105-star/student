@@ -15,13 +15,14 @@ npm start
 
 Mở `http://127.0.0.1:8001`. Máy chủ kết nối MongoDB trước khi nhận request.
 
-Học sinh nhập ngày sinh bằng 8 chữ số theo thứ tự ngày/tháng/năm, ví dụ `01012006`, xác nhận đúng họ tên rồi đăng nhập. Trong bài thi, đáp án được lưu bằng POST; đồng hồ tự nộp khi hết giờ, và rời tab/trang thi đủ 3 lần sẽ tự nộp. Sau khi nộp, học sinh xem được điểm, bài đã chọn và đáp án đúng.
+Học sinh nhập ngày sinh bằng 8 chữ số theo thứ tự ngày/tháng/năm, ví dụ `01012006`, xác nhận đúng họ tên rồi đăng nhập. Trong bài thi, đáp án được lưu bằng POST; đồng hồ tự nộp khi hết giờ, và rời tab/trang thi đủ 3 lần sẽ tự nộp. Sau khi nộp, học sinh xem được điểm, tổng số câu đúng, bài đã chọn và đáp án đúng. Trang chủ cũng hiển thị các bộ từ vựng được giao để ôn bằng Flashcard hoặc bảng tra cứu.
 
 ## Cấu trúc
 
 - `server.js`: nạp `.env`, kết nối MongoDB và khởi động cổng học sinh.
 - `config/db.js`: cấu hình kết nối MongoDB.
-- `controllers/examViewController.js`: dựng giao diện thi, tính điểm và hiển thị kết quả.
+- `controllers/examViewController.js`: dựng trang học sinh, tính điểm, kết quả và ôn từ vựng.
+- `controllers/examPageView.js`: dựng trang làm bài riêng.
 - `middleware/authMiddleware.js`: yêu cầu đăng nhập trước API bài thi.
 - `routes/studentRoutes.js`: route đăng nhập, làm bài, lưu đáp án và nộp bài.
 - `public/`: HTML/CSS/JavaScript phía trình duyệt.

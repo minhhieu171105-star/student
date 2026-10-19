@@ -4,8 +4,7 @@ const { esc, questions } = require('./examViewController');
 
 function renderExamPage({ name, test, attempt }) {
   const id = String(test._id);
-  const displayTitle = test.subject && String(test.subject).trim() !== String(test.title).trim()
-    ? `${test.subject} · ${test.title}` : test.title;
+  const displayTitle = test.title;
   const items = questions(test, attempt);
   const panels = items.map((question, index) => `<section class="question-panel" data-i="${index}" ${index ? 'hidden' : ''}><h2>Câu ${index + 1}. ${esc(question.q)}</h2>${['A', 'B', 'C', 'D'].map((letter, optionIndex) => `<div class="choice"><button type="button" data-answer="${letter}" data-i="${index}" class="${attempt.answers?.[index] === letter ? 'selected' : ''}"><strong>${letter}.</strong> ${esc(question.opts[optionIndex])}</button></div>`).join('')}</section>`).join('');
   const exam = `<h1>${esc(displayTitle)}</h1><div class="exam-workspace"><div class="timer-panel">Thời gian còn lại: <strong id="clock" data-deadline="${Number(attempt.deadline)}"></strong></div><div id="exam" data-id="${esc(id)}" data-no="${Number(attempt.attempt_no)}"><div id="progress"></div>${panels}<div class="exam-nav"><button type="button" id="prev">← Câu trước</button><button type="button" id="next">Câu tiếp theo →</button></div><button type="button" id="submit">Nộp bài</button></div></div>`;

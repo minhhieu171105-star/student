@@ -5,9 +5,19 @@ const { app, port } = require('./routes/studentRoutes');
 const { client } = require('./config/db');
 
 client.connect()
-  .then(() => app.listen(port, '0.0.0.0', () => {
-    console.log('Student Node.js listening on port ' + port);
-  }))
+  .then(() => {
+    const server = app.listen(port, '0.0.0.0', () => {
+      console.log('Student Node.js listening on http://localhost:' + port);
+    });
+    server.on('error', error => {
+      if (error.code === 'EADDRINUSE') {
+        console.error(`Không thể khởi động Student: cổng ${port} đang được sử dụng. Dừng cửa sổ Node.js cũ hoặc đổi PORT trong .env.`);
+      } else {
+        console.error('Student HTTP server failed:', error.message);
+      }
+      process.exit(1);
+    });
+  })
   .catch(error => {
     console.error('Student server startup failed:', error.message);
     process.exit(1);
