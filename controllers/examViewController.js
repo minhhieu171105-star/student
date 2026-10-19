@@ -158,16 +158,16 @@ function renderPortal({ name, tests, grouped, section, selected, attemptNo, view
             <a class="back-link" href="/?section=vocab">← Danh sách bộ từ vựng</a>
           </div>
           <div class="card" style="margin-bottom:20px;">
-            <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;">
+            <div class="vocab-detail-header">
               <div>
-                <div style="display:flex;gap:8px;align-items:center;margin-bottom:6px;">
+                <div class="vocab-detail-badges">
                   <span class="vocab-badge-lang">${esc(vocab.language || 'Ngoại ngữ')}</span>
                   <span class="vocab-badge-level">${esc(vocab.level || 'Cơ bản')}</span>
                 </div>
-                <h2 style="font-size:20px;margin:0 0 4px;color:var(--ink);">${esc(vocab.title)}</h2>
-                <p style="margin:0;font-size:13px;color:var(--muted);">📖 ${words.length} từ vựng cần ôn tập</p>
+                <h2 class="vocab-detail-title">${esc(vocab.title)}</h2>
+                <p class="vocab-detail-meta">📖 ${words.length} từ vựng cần ôn tập</p>
               </div>
-              <div style="display:flex;gap:8px;">
+              <div class="vocab-detail-tabs">
                 <button type="button" class="button" id="tab-flashcard-btn" style="font-size:13px;padding:6px 14px;">🎴 Thẻ Flashcard</button>
                 <button type="button" class="button button-secondary" id="tab-list-btn" style="font-size:13px;padding:6px 14px;">📋 Bảng từ vựng</button>
               </div>
@@ -242,11 +242,17 @@ function renderPortal({ name, tests, grouped, section, selected, attemptNo, view
             }
 
             window.speakWord = function(text) {
-              if (!window.speechSynthesis) return;
+              if (!text || !window.speechSynthesis) return;
               window.speechSynthesis.cancel();
               const u = new SpeechSynthesisUtterance(text);
               u.lang = getVoiceLang();
+              const voicePrefix = u.lang.slice(0, 2).toLowerCase();
+              const voice = window.speechSynthesis.getVoices().find(item => item.lang.toLowerCase().startsWith(voicePrefix));
+              if (voice) u.voice = voice;
+              u.rate = 0.9;
               window.speechSynthesis.speak(u);
+              window.speechSynthesis.resume();
+              window.setTimeout(() => window.speechSynthesis.resume(), 150);
             };
 
             const card = document.getElementById('fc-card');

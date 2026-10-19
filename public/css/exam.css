@@ -724,6 +724,11 @@ input:focus, select:focus, textarea:focus { border-color: var(--primary); box-sh
   .submit-exam-form button { width: 100%; }
   .timer-panel { top: 6px; gap: 8px; padding: 10px 12px; align-items: flex-start; flex-wrap: wrap; }
   #clock { font-size: 19px; }
+  .vocab-detail-header { align-items: stretch; }
+  .vocab-detail-title { font-size: 18px; line-height: 1.35; }
+  .vocab-detail-badges { gap: 6px; }
+  .vocab-detail-tabs { width: 100%; }
+  .vocab-detail-tabs .button { flex: 1 1 0; min-width: 0; padding: 8px 6px !important; font-size: 12px !important; }
 }
 
 /* Keep long answer text inside its button on every screen size. */
@@ -786,6 +791,11 @@ input:focus, select:focus, textarea:focus { border-color: var(--primary); box-sh
   font-size: 12px;
   font-weight: 700;
 }
+.vocab-detail-header { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px; }
+.vocab-detail-badges { display:flex; gap:8px; align-items:center; margin-bottom:6px; flex-wrap:wrap; }
+.vocab-detail-title { margin:0 0 4px; color:var(--ink); font-size:20px; overflow-wrap:anywhere; }
+.vocab-detail-meta { margin:0; color:var(--muted); font-size:13px; overflow-wrap:anywhere; }
+.vocab-detail-tabs { display:flex; gap:8px; flex-wrap:wrap; }
 
 /* Flashcard styles */
 .flashcard-arena {
