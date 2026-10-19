@@ -491,13 +491,17 @@ main {
 .result-summary { margin: -10px 0 18px; color: var(--ink-2); font-size: 15px; }
 .result { font-size: 1.5rem; font-weight: 800; color: var(--success-dark); }
 .result-stats { display:grid; grid-template-columns:repeat(4, minmax(0, 1fr)); gap:12px; margin-bottom:20px; padding:16px; background:var(--paper); border:1px solid var(--line); border-radius:var(--r-md); }
-.result-stat { min-width:0; padding:8px 4px; text-align:center; }
+.result-stat { min-width:0; padding:12px 8px; text-align:center; border:1px solid transparent; border-radius:var(--r-sm); }
 .result-stat-label { margin-bottom:5px; color:var(--muted); font-size:11px; font-weight:700; letter-spacing:.04em; line-height:1.35; text-transform:uppercase; overflow-wrap:anywhere; }
 .result-stat-value { color:var(--ink); font-size:22px; font-weight:800; line-height:1.25; overflow-wrap:anywhere; }
 .result-stat-score .result-stat-value { color:var(--primary); font-size:28px; }
 .result-stat-score .result-stat-value span { color:var(--muted); font-size:14px; font-weight:600; }
 .result-stat-correct .result-stat-value { color:#16a34a; }
 .result-stat-wrong .result-stat-value { color:#dc2626; }
+.result-stat-score { background:#f3e8ff; border-color:#e9d5ff; }
+.result-stat-correct { background:#dcfce7; border-color:#bbf7d0; }
+.result-stat-wrong { background:#fee2e2; border-color:#fecaca; }
+.result-stat-total { background:#e0f2fe; border-color:#bae6fd; }
 
 .timer-panel {
   position: sticky;
@@ -733,7 +737,7 @@ input:focus, select:focus, textarea:focus { border-color: var(--primary); box-sh
   .timer-panel { top: 6px; gap: 8px; padding: 10px 12px; align-items: flex-start; flex-wrap: wrap; }
   #clock { font-size: 19px; }
   .result-stats { grid-template-columns:repeat(2, minmax(0, 1fr)); gap:8px; padding:10px; }
-  .result-stat { padding:9px 4px; border:1px solid var(--line-light); border-radius:var(--r-sm); }
+  .result-stat { padding:10px 5px; }
   .result-stat-value { font-size:18px; }
   .result-stat-score .result-stat-value { font-size:24px; }
   .vocab-detail-header { align-items: stretch; }
