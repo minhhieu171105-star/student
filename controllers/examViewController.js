@@ -83,22 +83,22 @@ function renderPortal({ name, tests, grouped, section, selected, attemptNo, view
             </div>
           </div>
 
-          <div style="display:flex;gap:16px;flex-wrap:wrap;margin-bottom:20px;padding:16px;background:var(--paper);border:1px solid var(--line);border-radius:var(--r-md);">
-            <div style="text-align:center;flex:1;min-width:80px;">
-              <div style="font-size:11px;font-weight:700;letter-spacing:.06em;color:var(--muted);text-transform:uppercase;margin-bottom:4px;">Điểm số</div>
-              <div style="font-size:28px;font-weight:800;color:var(--primary);">${esc(chosen.score)}<span style="font-size:14px;font-weight:600;color:var(--muted);"> / 10</span></div>
+          <div class="result-stats">
+            <div class="result-stat result-stat-score">
+              <div class="result-stat-label">Điểm số</div>
+              <div class="result-stat-value">${esc(chosen.score)}<span> / 10</span></div>
             </div>
-            <div style="text-align:center;flex:1;min-width:80px;">
-              <div style="font-size:11px;font-weight:700;letter-spacing:.06em;color:var(--muted);text-transform:uppercase;margin-bottom:4px;">Số câu đúng</div>
-              <div style="font-size:22px;font-weight:800;color:#16a34a;">✓ ${correctCount} câu</div>
+            <div class="result-stat result-stat-correct">
+              <div class="result-stat-label">Số câu đúng</div>
+              <div class="result-stat-value">✓ ${correctCount} câu</div>
             </div>
-            <div style="text-align:center;flex:1;min-width:80px;">
-              <div style="font-size:11px;font-weight:700;letter-spacing:.06em;color:var(--muted);text-transform:uppercase;margin-bottom:4px;">Số câu sai</div>
-              <div style="font-size:22px;font-weight:800;color:#dc2626;">✗ ${visible.length - correctCount} câu</div>
+            <div class="result-stat result-stat-wrong">
+              <div class="result-stat-label">Số câu sai</div>
+              <div class="result-stat-value">✗ ${visible.length - correctCount} câu</div>
             </div>
-            <div style="text-align:center;flex:1;min-width:80px;">
-              <div style="font-size:11px;font-weight:700;letter-spacing:.06em;color:var(--muted);text-transform:uppercase;margin-bottom:4px;">Tổng số câu</div>
-              <div style="font-size:22px;font-weight:800;color:var(--ink);">${visible.length} câu</div>
+            <div class="result-stat result-stat-total">
+              <div class="result-stat-label">Tổng số câu</div>
+              <div class="result-stat-value">${visible.length} câu</div>
             </div>
           </div>
 
