@@ -26,4 +26,9 @@ if (require.main === module) {
   });
 }
 
-module.exports = app;
+function handler(req, res) {
+  return app(req, res);
+}
+
+module.exports = handler;
+module.exports.default = handler;
