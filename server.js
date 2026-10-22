@@ -4,8 +4,8 @@ require('dotenv').config({ path: path.join(__dirname, '.env') });
 const { app, port } = require('./routes/studentRoutes');
 const { client } = require('./config/db');
 
-client.connect()
-  .then(() => {
+async function start() {
+  await client.connect();
     const server = app.listen(port, '0.0.0.0', () => {
       console.log('Student Node.js listening on http://localhost:' + port);
     });
@@ -17,8 +17,13 @@ client.connect()
       }
       process.exit(1);
     });
-  })
-  .catch(error => {
+}
+
+if (require.main === module) {
+  start().catch(error => {
     console.error('Student server startup failed:', error.message);
     process.exit(1);
   });
+}
+
+module.exports = app;
